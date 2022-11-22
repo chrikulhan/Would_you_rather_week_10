@@ -1,0 +1,119 @@
+Vue Components:
+
+Components are used to divide the page into logical sections
+
+-One Vue instance will manage all the components
+-Components should be designed to have a specific purpose or role,
+    and operate mostly independently
+-A page is made of components
+-A component can contain other smaller components - (child components)
+-Components can be sent data
+-Components can send messages to their containing component –
+    their parent component
+
+Which parts of a page could be components?
+-What parts of the page have different roles?
+    **Components:
+        -Add new student form
+        -Student table
+        -Welcome/goodbye message
+
+    **More components:
+    -Each row of the student table could be a component too
+    -This is a typical approach if the logic/data for a row is more complex
+    -Can generate components in a v-for loop
+
+    **Even more components:
+        -We'll add one new feature
+        -Delete student
+        -So we'll need to think about how these features will fit into
+         existing components, or if it will be better to create a new component
+         or components
+        -UX question – how will the user be able to edit/delete?
+        context menu, buttons in UI, editable table rows, something else?
+
+**Adding/editing/deleting items from/in a list:
+-A much more general feature than just student sign in
+    -Change quantity or delete items from shopping cart
+    -Edit or delete discussion posts on D2L
+    -Edit or delete email drafts in Gmail
+    -Edit or delete tweets at Twitter
+What else can you think of?
+
+***Vue Components:
+-Each has its own scope
+-Own template, logic, and can have own CSS
+-Apart from the top-level component, each component has a parent component
+-Parents can pass data to their child component(s), child stores data in props
+-Child components can notify parents of events that happen in that component
+-!!!But not the other way around (parents CANNOT notify child components of events)
+
+**Vue Components
+-More complex apps may have many components
+-Components can be reused
+
+https://vuejs.org/v2/guide/components.html
+
+***First, basic component example - Would You Rather?
+-Pick a question from this list
+https://conversationstartersworld.com/would-you-rather-questions-for-kids/
+
+-I'm going to choose "Would you rather live in a house shaped like a
+circle or a house shaped like a triangle?"
+
+-Please select your own question
+Or make up a question, if you prefer
+
+**Would You Rather? App will have two components
+-Parent component will have the questions and the two answers
+-Parent component will provide this data to the child component's props
+
+-Child component will display question, and two radio buttons –
+    one radio button for each answer
+
+-Child component will notify the parent component by emitting a
+message when the user selects an answer or changed their choice
+-Parent component will display user's choice
+
+**Problems with Components
+
+-Components have more code
+-We can write multiple components in one file but that's
+    hard to manage, especially as an app gets larger and more complex
+
+-Solution: single-file components
+-One file for each component, files have .vue extension
+-Each component file has template, script, and optionally
+    CSS for that component
+
+Problem:
+-How to compose several files into one app?
+
+-Solution: vue-cli tool: https://cli.vuejs.org/
+-Generates a Vue project
+-Composes Vue files into one bundle, using webpack
+    https://webpack.js.org/
+    -Webpack bundles together all your Vue scripts (containing components, template, CSS), helper scripts, images, and other assets, into one page with links to the other resources
+    -Your scripts will define how they relate to each other
+-Tip: your filenames are case-sensitive
+
+alias for local server: 127.0.0.1:8080
+**This development server will keep running
+To stop the server hold down ctrl-C
+restart the server with the correct project, npm to restart the server again.
+
+**components have a vue extension
+**assets are images, other media, etc. (vue logo)
+**if you open a vue thing in vetur
+
+
+
+
+
+
+
+
+
+
+
+
