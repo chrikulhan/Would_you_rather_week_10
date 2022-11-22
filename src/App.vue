@@ -1,15 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
+  <div id="app">
+<!--    template child must have *exactly* one element
+**you can put ANYThing you want inside this div, but can only have
+this one div.-->
+    <h1>Would you rather... </h1>
+<!--    you MUST have closed tags when using vue-->
+<!--How to access components in -->
+  </div>
+  </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import WouldYouRather from './components/WouldYouRather.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    WouldYouRather
   }
 }
 </script>
