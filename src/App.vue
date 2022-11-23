@@ -10,11 +10,23 @@ this one div.-->
 <!--    another component: suggested by webstorm (looks for uppercase followed by lowercase combos):
 This will be replaced by the "WouldYouRather.vue" <div></div> template
 ** This is useful as it's has all it's own data, rules, logic, etc. can just add it.-->
-    <would-you-rather></would-you-rather>
+<!--    <would-you-rather></would-you-rather>-->
 <!--    ^^^this is convention because there is no confusion
 with any html components, as there are no dashing in html names.-->
 <!--    could be written as:
 <WouldYouRather></>WouldYouRather>, page will be identical-->
+
+    <!-- start sending data between app.vue and WouldYouRather.vue
+    using would-you-rather component (<would-you-rather></>would-you-rather>):
+       use v-bind, bind the name of the prop (question) from WouldYouRather.vue:
+       the data in question will be "wyrQuestion" from app.vue-->
+    <would-you-rather v-bind:question="wyrQuestion"
+    v-bind:answer1="wyrAnswer1"
+    v-bind:answer2="wyrAnswer2"
+    ></would-you-rather>
+<!--^^^^Connect the two answers:-->
+<!--  answer1 is the name of the prop in the child-->
+<!--  wyrAnswer1 is the name of the data in the parent -->
 
   </div>
   </template>
@@ -31,15 +43,20 @@ export default {
   data() {
     return {
     wyrQuestion: 'Would you rather never have to take a bath/shower but still always smell nice or never have to get another shot but still be healthy?',
-      wyrAnswer1: 'Never have to take a bath/shower, but always smell nice.',
-      wyrAnswer2: 'Never have to get another shot but still be healthy.',
+      wyrAnswer1: 'No bathing, but always smell nice.',
+      wyrAnswer2: 'No shots, but still be healthy.',
       userSelectionMessage: ''
     //  ^^empty string because nothing has been chosen by the user yet.
+
     //  app.vue will send the question and two possible answers to WouldYouRather.vue
-    //  and it will send the data to wouldyouRather, and it will be stored in wouldYouRather
+    // and it will be stored in wouldYouRather.
+
     //  **Data that a parent component sends to a child component is stored in props
-    //  the difference is who sends the data. Props sent by a parent,
-    //  data is stored or managed internally by a component.
+    //  the difference is who sends the data.
+
+      //  Props sent by a parent,
+    //    data is stored, generated, or managed internally by a component.
+    //
     }
   }
 }
