@@ -34,7 +34,12 @@ export default {
       wyrAnswer1: 'Never have to take a bath/shower, but always smell nice.',
       wyrAnswer2: 'Never have to get another shot but still be healthy.',
       userSelectionMessage: ''
-    //  ^^empty string because nothing has been chosen yet.
+    //  ^^empty string because nothing has been chosen by the user yet.
+    //  app.vue will send the question and two possible answers to WouldYouRather.vue
+    //  and it will send the data to wouldyouRather, and it will be stored in wouldYouRather
+    //  **Data that a parent component sends to a child component is stored in props
+    //  the difference is who sends the data. Props sent by a parent,
+    //  data is stored or managed internally by a component.
     }
   }
 }
