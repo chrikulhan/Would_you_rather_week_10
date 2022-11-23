@@ -14,9 +14,14 @@ This vvv will display the data on the page:-->
 <!--  from app.vue display the choices that were v-binded to the answers
 in the would-you-rather component (would-you-rather) vvv:-->
 
-  <input type="radio"><label>{{ answer1 }}</label>
-  <input type="radio"><label>{{ answer2 }}</label>
+<!--  <input type="radio"><label>{{ answer1 }}</label>-->
+<!--  <input type="radio"><label>{{ answer2 }}</label>-->
+<!--    add v-model and v-bind to the radio buttons:-->
+    <input type="radio" v-model="choice">
+    <label>{{ answer1 }}</label>
 
+    <input type="radio" v-model="choice">
+    <label>{{ answer2 }}</label>
 
   </div>
 </template>
@@ -26,10 +31,19 @@ export default {
   name: 'WouldYouRather',
   //You put a type of data in props (so here we'll use a string)vv
   //note String is upper case. (check on vue dev tools to see this is there)
+  //**important rule with props: the child component (the thing that has the prop)
+  // does not modify, will need to make a new data function (see below)vvv
   props: {
     question: String,
     answer1: String,
     answer2: String,
+  },
+  data() {
+    //will return an object with data in it:
+    return {
+      //vvv empty string because no choice was made:
+      choice: ''
+    }
   }
 }
 </script>
