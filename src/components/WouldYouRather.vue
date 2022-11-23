@@ -11,16 +11,33 @@
 This vvv will display the data on the page:-->
   <h3>{{ question }}</h3>
 
-<!--  from app.vue display the choices that were v-binded to the answers
+<!--  from app.vue display the choices that were v-bound to the answers
 in the would-you-rather component (would-you-rather) vvv:-->
 
 <!--  <input type="radio"><label>{{ answer1 }}</label>-->
 <!--  <input type="radio"><label>{{ answer2 }}</label>-->
+
 <!--    add v-model and v-bind to the radio buttons:-->
-    <input type="radio" v-model="choice">
+<!--    <input type="radio" v-model="choice">-->
+<!--    <label>{{ answer1 }}</label>-->
+
+<!--    <input type="radio" v-model="choice">-->
+<!--    <label>{{ answer2 }}</label>-->
+
+<!--    use v-bind to set each radio buttons value: -->
+<!--    <input type="radio" v-model="choice" v-bind:value="answer1">-->
+<!--    <label>{{ answer1 }}</label>-->
+
+<!--    <input type="radio" v-model="choice" v-bind:value="answer2">-->
+<!--    <label>{{ answer2 }}</label>-->
+
+<!--    add a v-on change to the radio buttons so WouldYouRather.vue can detect that the user
+      has made a choice:-->
+    <input type="radio" v-model="choice" v-bind:value="answer1" v-on:change="choiceMade">
     <label>{{ answer1 }}</label>
 
-    <input type="radio" v-model="choice">
+    <input type="radio" v-model="choice" v-bind:value="answer2" v-on:change="choiceMade">
+<!--    write choiceMade method in WouldYouRather (under script below)-->
     <label>{{ answer2 }}</label>
 
   </div>
@@ -38,11 +55,28 @@ export default {
     answer1: String,
     answer2: String,
   },
+  //data is a function:
+  //reason this is done-- because we could reuse WouldYouRather.vue in an application, (example:
+  //asking many questions.)
   data() {
     //will return an object with data in it:
     return {
       //vvv empty string because no choice was made:
       choice: ''
+    }
+  },
+  //make methods for v-on:change="choiceMade"
+  methods: {
+    choiceMade() {
+      // console.log('choice!') **make sure this is working (can see in vue devtools)
+      //what this will do is get a message to App.vue
+      //can use any name you like, (don't use built in javascript names like click and change),
+      //but otherwise, use anything you like.
+      //good practice to use a name with a dash in it, because javascript using NO dashes, will not conflict.
+      //('answer-changed', list data you want to be sent along to the parent)
+      //(this.choice = data, no shower, or no shots in my program)
+      // **
+      this.$emit('answer-changed', this.choice)
     }
   }
 }

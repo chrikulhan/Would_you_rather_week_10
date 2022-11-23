@@ -100,11 +100,12 @@ Problem:
 alias for local server: 127.0.0.1:8080
 **This development server will keep running
 To stop the server hold down ctrl-C
-restart the server with the correct project, npm to restart the server again.
+restart the server with the correct project, "npm run serve" to restart the server again.
 
 **components have a vue extension
 **assets are images, other media, etc. (vue logo)
 **if you open a vue thing in vetur
+
 
 
 
