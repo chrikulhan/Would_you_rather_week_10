@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="wyr">
 <!--    when you add something here, it's
  not added to the page because everything seen
  on the webpage is app.vue, and it's just one h1 element
@@ -75,7 +75,8 @@ export default {
       //good practice to use a name with a dash in it, because javascript using NO dashes, will not conflict.
       //('answer-changed', list data you want to be sent along to the parent)
       //(this.choice = data, no shower, or no shots in my program)
-      // **
+      //**only the parent component(app.vue) of WouldYouRather would be able to detect and
+      //receive this event.
       this.$emit('answer-changed', this.choice)
     }
   }
@@ -83,19 +84,15 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+<!--this limits the styles to ONLY WouldYouRather, not App.vue-->
 <style scoped>
 h3 {
   margin: 40px 0 0;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.wyr {
+  border: 2px blue;
+  background-color: mediumpurple;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>

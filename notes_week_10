@@ -106,6 +106,21 @@ restart the server with the correct project, "npm run serve" to restart the serv
 **assets are images, other media, etc. (vue logo)
 **if you open a vue thing in vetur
 
+**be sure to make a separate git repository for each
+vue/cli project going forward so things stay organized.
+
+Check this: terminal:
+"git status"
+run "git init" to create repository
+
+add work:
+"git add ."
+
+commit:
+"git commit -m 'would your rather vue component app'"
+
+
+
 
 
 
