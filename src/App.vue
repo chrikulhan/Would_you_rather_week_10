@@ -48,11 +48,28 @@ export default {
 //  after the set-up, HERE is where you add data:
   data() {
     return {
-      questions
-    wyrQuestion: 'Would you rather never have to take a bath/shower but still always smell nice or never have to get ' +
-        'another shot but still be healthy?',
-      wyrAnswer1: 'No bathing, but always smell nice.',
-      wyrAnswer2: 'No shots, but still be healthy.',
+      questions: [
+        {
+          id: 0,
+          question: 'Would you rather never have to take a bath/shower but still always smell nice or never have to get ' +
+              'another shot but still be healthy?',
+          answer1: 'No bathing, but always smell nice.',
+          answer2: 'No shots, but still be healthy.',
+
+        },
+        {
+          id: 1,
+          question: 'Would you rather be a wizard or a superhero?' ,
+          answer1: 'Wizard',
+          answer2: 'Superhero',
+        },
+        {
+          id: 2,
+          question: 'Would you rather go snorkeling on a reef or camping by a lake?' ,
+          answer1: 'Snorkeling',
+          answer2: 'Camping',
+        }
+      ],
       userSelectionMessage: ''
     //  ^^empty string because nothing has been chosen by the user yet.
 
