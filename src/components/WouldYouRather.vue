@@ -1,38 +1,11 @@
 <template>
   <div class="wyr">
-<!--    when you add something here, it's
- not added to the page because everything seen
- on the webpage is app.vue, and it's just one h1 element
- **What we do to incorporate components in our page is reference
- them here (in WouldYouRather.vue) in this template-->
-  <h2>Please make your choice.</h2>
 
-<!--    from app.vue would-you-rather component (v-bind) to question
-This vvv will display the data on the page:-->
+<!--    todo add a v-for loop just below to make 3 WouldYouRather components.-->
+  <h2 >Would you rather...</h2>
+
   <h3>{{ question }}</h3>
 
-<!--  from app.vue display the choices that were v-bound to the answers
-in the would-you-rather component (would-you-rather) vvv:-->
-
-<!--  <input type="radio"><label>{{ answer1 }}</label>-->
-<!--  <input type="radio"><label>{{ answer2 }}</label>-->
-
-<!--    add v-model and v-bind to the radio buttons:-->
-<!--    <input type="radio" v-model="choice">-->
-<!--    <label>{{ answer1 }}</label>-->
-
-<!--    <input type="radio" v-model="choice">-->
-<!--    <label>{{ answer2 }}</label>-->
-
-<!--    use v-bind to set each radio buttons value: -->
-<!--    <input type="radio" v-model="choice" v-bind:value="answer1">-->
-<!--    <label>{{ answer1 }}</label>-->
-
-<!--    <input type="radio" v-model="choice" v-bind:value="answer2">-->
-<!--    <label>{{ answer2 }}</label>-->
-
-<!--    add a v-on change to the radio buttons so WouldYouRather.vue can detect that the user
-      has made a choice:-->
     <input type="radio" v-model="choice" v-bind:value="answer1" v-on:change="choiceMade">
     <label>{{ answer1 }}</label>
 

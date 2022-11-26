@@ -4,35 +4,14 @@
 <!--    template child must have *exactly* one element
 **you can put ANYThing you want inside this div, but can only have
 this one div.-->
-    <h1>Would you rather... </h1>
-<!--    you MUST have closed tags when using vue-->
-<!--how to include other templates by their name:-->
-<!--    another component: suggested by webstorm (looks for uppercase followed by lowercase combos):
-This will be replaced by the "WouldYouRather.vue" <div></div> template
-** This is useful as it's has all it's own data, rules, logic, etc. can just add it.-->
-<!--    <would-you-rather></would-you-rather>-->
-<!--    ^^^this is convention because there is no confusion
-with any html components, as there are no dashing in html names.-->
-<!--    could be written as:
-<WouldYouRather></>WouldYouRather>, page will be identical-->
+    <h1>Would you rather?</h1>
 
-    <!-- start sending data between app.vue and WouldYouRather.vue
-    using would-you-rather component (<would-you-rather></>would-you-rather>):
-       use v-bind, bind the name of the prop (question) from WouldYouRather.vue:
-       the data in question will be "wyrQuestion" from app.vue-->
     <would-you-rather v-bind:question="wyrQuestion"
     v-bind:answer1="wyrAnswer1"
     v-bind:answer2="wyrAnswer2"
     v-on:answer-changed="answerChanged"></would-you-rather>
 
     <p>{{ userSelectionMessage }}</p>
-
-<!-- ^^Add a parent component so that it can read the choicemade() in WouldYouRather.vue                     -->
-<!--    v-on:answer-changed is the same name used in teh choicemade() this.$emit
-        when this changes, call a method (answerChanged) <<<name of the method-->
-<!--^^^^Connect the two answers:-->
-<!--  answer1 is the name of the prop in the child-->
-<!--  wyrAnswer1 is the name of the data in the parent -->
 
   </div>
   </template>
@@ -51,7 +30,7 @@ export default {
       questions: [
         {
           id: 0,
-          question: 'Would you rather never have to take a bath/shower but still always smell nice or never have to get ' +
+          question: '...never have to take a bath/shower but still always smell nice or never have to get ' +
               'another shot but still be healthy?',
           answer1: 'No bathing, but always smell nice.',
           answer2: 'No shots, but still be healthy.',
@@ -59,15 +38,15 @@ export default {
         },
         {
           id: 1,
-          question: 'Would you rather be a wizard or a superhero?' ,
-          answer1: 'Wizard',
-          answer2: 'Superhero',
+          question: '...be a banana or an apple?' ,
+          answer1: 'Be a banana',
+          answer2: 'Be an apple',
         },
         {
           id: 2,
-          question: 'Would you rather go snorkeling on a reef or camping by a lake?' ,
-          answer1: 'Snorkeling',
-          answer2: 'Camping',
+          question: '...go snorkeling on a reef or camping by a lake?' ,
+          answer1: 'Go snorkeling',
+          answer2: 'Go camping',
         }
       ],
       userSelectionMessage: ''
@@ -86,7 +65,8 @@ export default {
   },
   methods: {
     answerChanged(choice) {
-      this.userSelectionMessage = `Thanks! You chose ${choice}`
+      this.userSelectionMessage = `${choice}`
+    //  todo bind this choice to each of the 3 questions that are chosen somehow.
     }
   }
 }
@@ -100,7 +80,7 @@ body{
 }
 
 /*these styles will be applied to WouldYouRather.vue, but
- WouldYouRather.vue will be scoped, so only apply to its components*/
+ WouldYouRather.vue will be scoped, so WouldYouRather styles will only apply to its components*/
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
